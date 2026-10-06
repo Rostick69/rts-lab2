@@ -15,3 +15,18 @@ def worst_case(op, model):
     return (model.base_cost
             + op.mem_accesses * model.cache_miss_penalty
             + op.branches * model.mispredict_penalty)
+
+
+def bcet(fragment, model):
+    """Наилучшее время выполнения фрагмента — сумма лучших времён операций."""
+    return sum(best_case(op, model) for op in fragment)
+
+
+def wcet(fragment, model):
+    """Наихудшее время выполнения фрагмента — сумма худших времён операций."""
+    return sum(worst_case(op, model) for op in fragment)
+
+
+def nondeterminism_ratio(fragment, model):
+    """Коэффициент недетерминизма K = WCET / BCET."""
+    return wcet(fragment, model) / bcet(fragment, model)
