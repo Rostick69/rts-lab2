@@ -27,6 +27,7 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\variant2.json" />
     <Content Include="docs\README.md" />
     <Content Include="README.md" />
   </ItemGroup>

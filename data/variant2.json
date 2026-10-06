@@ -1,0 +1,83 @@
+{
+  "title": "шаг ПИД-регулятора",
+  "processor": {
+    "base_cost": 1,
+    "cache_miss_penalty": 20,
+    "mispredict_penalty": 10
+  },
+  "deadline": 300,
+  "operations": [
+    {
+      "name": "Чтение уставки r",
+      "type": "чтение",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "Чтение измерения y с АЦП",
+      "type": "чтение",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "Ошибка e = r - y",
+      "type": "вычисление",
+      "mem_accesses": 0,
+      "branches": 0
+    },
+    {
+      "name": "P = Kp * e",
+      "type": "вычисление",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "I = I + Ki * e * dt",
+      "type": "вычисление",
+      "mem_accesses": 2,
+      "branches": 0
+    },
+    {
+      "name": "Ограничение интеграла",
+      "type": "ветвление",
+      "mem_accesses": 0,
+      "branches": 2
+    },
+    {
+      "name": "Чтение прошлой ошибки e_prev",
+      "type": "чтение",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "D = Kd * (e - e_prev) / dt",
+      "type": "вычисление",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "Сумма u = P + I + D",
+      "type": "вычисление",
+      "mem_accesses": 0,
+      "branches": 0
+    },
+    {
+      "name": "Ограничение выхода u",
+      "type": "ветвление",
+      "mem_accesses": 0,
+      "branches": 2
+    },
+    {
+      "name": "Сохранение e_prev и I",
+      "type": "запись",
+      "mem_accesses": 2,
+      "branches": 0
+    },
+    {
+      "name": "Вывод u на привод (ШИМ)",
+      "type": "запись",
+      "mem_accesses": 1,
+      "branches": 0
+    }
+  ]
+}
