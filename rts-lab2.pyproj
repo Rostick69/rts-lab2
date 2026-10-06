@@ -4,8 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{dd108e97-bf90-4172-963b-11d39ce7c3c5}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>src\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -33,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\calculations.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\main.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="src\models.py">
