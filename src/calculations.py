@@ -17,6 +17,7 @@ def worst_case(op, model):
             + op.branches * model.mispredict_penalty)
 
 
+
 def bcet(fragment, model):
     """Наилучшее время выполнения фрагмента — сумма лучших времён операций."""
     return sum(best_case(op, model) for op in fragment)
@@ -30,3 +31,30 @@ def wcet(fragment, model):
 def nondeterminism_ratio(fragment, model):
     """Коэффициент недетерминизма K = WCET / BCET."""
     return wcet(fragment, model) / bcet(fragment, model)
+
+
+
+def total_mem_accesses(fragment):
+    """Общее число обращений к памяти во фрагменте."""
+    return sum(op.mem_accesses for op in fragment)
+
+
+def total_branches(fragment):
+    """Общее число ветвлений во фрагменте."""
+    return sum(op.branches for op in fragment)
+
+
+def source_breakdown(fragment, model):
+    """Вклад каждого источника в WCET (в тактах)."""
+    # Память и ветвления считаем отдельно: каждый источник даёт свой штраф,
+    # а в сумме с базовым временем они дают ровно WCET
+    return {
+        "базовое выполнение": bcet(fragment, model),
+        "память (промахи кэша)": total_mem_accesses(fragment) * model.cache_miss_penalty,
+        "ветвления (ошибки предсказания)": total_branches(fragment) * model.mispredict_penalty,
+    }
+
+
+def fits_deadline(fragment, model, deadline):
+    """Укладывается ли фрагмент в дедлайн в худшем случае (WCET <= дедлайн)."""
+    return wcet(fragment, model) <= deadline
