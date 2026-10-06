@@ -2,10 +2,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4613ad5b-da55-2c70-9c09-acc5338818b3}</ProjectGuid>
+    <ProjectGuid>{dd108e97-bf90-4172-963b-11d39ce7c3c5}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>src\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,7 +34,13 @@
     <Compile Include="src\calculations.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="src\main.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\output.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
