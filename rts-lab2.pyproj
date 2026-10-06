@@ -11,6 +11,10 @@
     <OutputPath>.</OutputPath>
     <Name>rts-lab2</Name>
     <RootNamespace>rts-lab2</RootNamespace>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <CommandLineArguments>
+    </CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +30,7 @@
     <Folder Include="src\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\example_methodichka.json" />
     <Content Include="data\variant2.json" />
     <Content Include="docs\README.md" />
     <Content Include="README.md" />

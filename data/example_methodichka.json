@@ -1,0 +1,59 @@
+{
+  "title": "фрагмент из 8 операций (пример из методички)",
+  "processor": {
+    "base_cost": 1,
+    "cache_miss_penalty": 20,
+    "mispredict_penalty": 10
+  },
+  "deadline": 100,
+  "operations": [
+    {
+      "name": "Загрузка a",
+      "type": "чтение",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "Загрузка b",
+      "type": "чтение",
+      "mem_accesses": 1,
+      "branches": 0
+    },
+    {
+      "name": "Сложение a + b",
+      "type": "вычисление",
+      "mem_accesses": 0,
+      "branches": 0
+    },
+    {
+      "name": "Сравнение и переход 1",
+      "type": "ветвление",
+      "mem_accesses": 0,
+      "branches": 1
+    },
+    {
+      "name": "Умножение",
+      "type": "вычисление",
+      "mem_accesses": 0,
+      "branches": 0
+    },
+    {
+      "name": "Сравнение и переход 2",
+      "type": "ветвление",
+      "mem_accesses": 0,
+      "branches": 1
+    },
+    {
+      "name": "Сдвиг",
+      "type": "вычисление",
+      "mem_accesses": 0,
+      "branches": 0
+    },
+    {
+      "name": "Сохранение результата",
+      "type": "запись",
+      "mem_accesses": 1,
+      "branches": 0
+    }
+  ]
+}
