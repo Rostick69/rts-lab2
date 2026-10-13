@@ -33,6 +33,7 @@
     <Content Include="data\example_methodichka.json" />
     <Content Include="data\variant2.json" />
     <Content Include="docs\README.md" />
+    <Content Include="docs\Практическая работа №2 - СРВ - отчет.docx" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
